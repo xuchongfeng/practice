@@ -21,12 +21,16 @@ class Parent {
             std::cout<<"Parent Copy Constructor Called"<<std::endl;
         }
 
-        Parent operator=(const Parent& parent) {
+        Parent& operator=(const Parent& parent) {
             this->age = parent.age;
             this->height = parent.height;
             this->name = parent.name;
             std::cout<<"Parent Operator= Called"<<std::endl;
             return *this;
+        }
+
+        virtual ~Parent() {
+            std::cout<<"Virtual Parent Destructor Called"<<std::endl;
         }
 };
 
@@ -60,6 +64,10 @@ class Child: public Parent {
     public:
         Child(int age, double height, std::string name, std::string toyName): cartoon("Hello"), Parent(age, height, name), toy(toyName) {
         }
+
+        virtual ~Child() {
+            std::cout<<"Child Virtual Destructor Called"<<std::endl;
+        }
 };
 
 
@@ -73,5 +81,10 @@ int main() {
     std::cout<<"####Constructor Called Sequence#####"<<std::endl;
     Child* c1 = new Child(20, 20.0, "lucy", "Dell");
     std::cout<<"####Constructor Called Sequence#####"<<std::endl;
+    std::cout<<"####Destructor Called Sequence#####"<<std::endl;
+    delete(p1);
+    delete(c1);
+    std::cout<<"####Destructor Called Sequence#####"<<std::endl;
+
     return 0;
 }
