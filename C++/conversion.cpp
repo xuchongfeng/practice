@@ -17,7 +17,7 @@
 
 class Fraction {
     public:
-        Fraction(int num, int den = 1): _numerator(num), _denominator(den){}
+        explicit Fraction(int num, int den = 1): _numerator(num), _denominator(den){}
         operator double() const {
             return (double) _numerator / _denominator;
         }
@@ -35,6 +35,7 @@ int main() {
 //    Integer* integer = new Integer(2);
     std::cout<<double(*value)<<std::endl;
     std::cout<<4.0 + *value <<std::endl;
+    std::cout<<*value + 4.0 <<std::endl;
 //    std::cout<<*integer + *value<<std::endl;
     return 0;
 }
