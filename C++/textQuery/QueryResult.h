@@ -12,7 +12,7 @@
 #include "TextQuery.h"
 
 class QueryResult {
-    friend std::ostream& print(std::ostream, const QueryResult&);
+    friend std::ostream& print(std::ostream&, const QueryResult&);
 public:
     using line_no = std::vector<std::string>::size_type;
     QueryResult(std::string s,
@@ -25,6 +25,6 @@ private:
     std::shared_ptr<std::vector<std::string>> file; // Input File
 };
 
-std::ostream& print(std::ostream, const QueryResult&);
+std::ostream& print(std::ostream&, const QueryResult&);
 
 #endif //TEXTQUERY_QUERYRESULT_H

@@ -8,8 +8,8 @@
 
 int main() {
     std::string word;
-    std::ifstream is;
-    is.open("file.txt");
+    std::ifstream is("file.txt");
+    std::cout<<is.is_open()<<std::endl;
     TextQuery tq(is);
     while (1) {
         std::cout<<"Enter word, q to quit"<<std::endl;

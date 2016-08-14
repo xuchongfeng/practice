@@ -11,7 +11,7 @@ std::string make_plural(unsigned long size, const std::string &str, const std::s
     }
 }
 
-std::ostream& print(std::ostream &os, const QueryResult &result) {
+std::ostream &print(std::ostream &os, const QueryResult &result) {
     os << result.sought << " occurs " << result.lines->size()
        << " " << make_plural(result.lines->size(), "time", "s") << std::endl;
 
@@ -21,3 +21,4 @@ std::ostream& print(std::ostream &os, const QueryResult &result) {
 
     return os;
 }
+
